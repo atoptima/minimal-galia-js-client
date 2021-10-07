@@ -1,0 +1,13 @@
+{
+  "name": "EchoServer",
+  "version": "0.1.0",
+  "description": "Echo server used to demo Galia back-end",
+  "main": "index.js",
+  "author": "Vitor Nesello",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io-client": "2.3.0"
+  }
+}
