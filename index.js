@@ -4,6 +4,8 @@ const socketIo = require('socket.io-client');
 
 // Environment (should be edited to your specific case)
 require('dotenv').config()
+const apiProtocol = process.env.PROTOCOL == 'websecure' ? 'https' : 'http';
+const webSocketProtocol = process.env.PROTOCOL == 'websecure' ? 'wss' : 'ws';
 const galiaHost = process.env.GALIA_HOST || 'gbe.atoptima.com';
 const galiaPort = process.env.GALIA_PORT || 443;
 const myHost = process.env.MY_HOST || 'http://localhost'; // Host of this (client) application
@@ -29,7 +31,7 @@ app.post('/webhook/echo', (req, res) => {
 /////////////// WEBSOCKET BEGIN
 // Connect to server providing accessToken
 const socket = socketIo.io(
-    `ws://${galiaHost}:${galiaPort}`,
+    `${webSocketProtocol}://${galiaHost}:${galiaPort}`,
     {
         auth: {
             token: accessToken
