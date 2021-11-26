@@ -36,6 +36,7 @@ const socket = socketIo.io(
         auth: {
             token: accessToken
         },
+        transports: ['websocket']
     }
 );
 
