@@ -48,7 +48,13 @@ socket.on('connect', () => {
 
 // Display the result when galia sends it through the socket
 socket.on(applicationId, function(data) {
-    console.log('Received a new websocket result');
+    console.log('Websocket: Received a new webhook result');
+    console.log(data);
+});
+
+// Display the result when galia sends it through the socket
+socket.on(`${applicationId}-recompute`, function(data) {
+    console.log('Websocket: Received a new recompute result');
     console.log(data);
 });
 /////////////// WEBSOCKET END
