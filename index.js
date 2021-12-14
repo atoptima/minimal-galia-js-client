@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 /////////////// WEBHOOK BEGIN
 // Endpoint to receive Galia results
 app.post('/webhook/echo', (req, res) => {
-    console.log('Received a new webhook result request');
+    console.log('Webhook: Received a new result request');
     console.log(req.body);
     res.sendStatus(200);
 })
@@ -48,7 +48,7 @@ socket.on('connect', () => {
 
 // Display the result when galia sends it through the socket
 socket.on(applicationId, function(data) {
-    console.log('Websocket: Received a new webhook result');
+    console.log('Websocket: Received a new result');
     console.log(data);
 });
 
